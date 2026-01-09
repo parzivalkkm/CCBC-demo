@@ -1,5 +1,5 @@
 <template>
-  <view class="page">
+  <view :class="['page', { 'page--splash': screen === 'splash' }]">
     <splash-screen
       v-if="screen === 'splash'"
       :countdown="countdown"
@@ -24,6 +24,7 @@
 <script>
 import SplashScreen from '../../components/SplashScreen.vue'
 import LoginPanel from '../../components/LoginPanel.vue'
+import { POLICY_CONTENT } from '../../common/policies.js'
 
 let splashTimer = null
 
@@ -49,16 +50,7 @@ export default {
         { name: 'wechat', src: '/static/wechat.png' },
         { name: 'alipay', src: '/static/Alipay.png' }
       ],
-      documents: {
-        service: {
-          title: '电子银行个人客户服务协议',
-          content: '请阅读《中国建设银行股份有限公司电子银行个人客户服务协议》、《中国建设银行股份有限公司个人信息保护政策》后勾选同意。'
-        },
-        privacy: {
-          title: '个人信息保护政策',
-          content: '我们依据相关法律法规保护您的个人信息，请详细阅读并确认同意后继续操作。'
-        }
-      }
+      documents: POLICY_CONTENT
     }
   },
   onLoad() {
@@ -99,11 +91,8 @@ export default {
       if (!doc) {
         return
       }
-      uni.showModal({
-        title: doc.title,
-        content: doc.content,
-        confirmText: '确定',
-        showCancel: false
+      uni.navigateTo({
+        url: `/pages/policy/view?type=${type}`
       })
     },
     handleSubmit() {
@@ -116,7 +105,7 @@ export default {
       }
       if (!this.agreementChecked) {
         uni.showModal({
-          content: this.documents.service.content,
+          content: this.documents.service.notice,
           showCancel: false,
           confirmText: '确定'
         })
@@ -145,5 +134,9 @@ page {
   padding: 40rpx;
   display: flex;
   flex-direction: column;
+}
+
+.page--splash {
+  padding: 0;
 }
 </style>

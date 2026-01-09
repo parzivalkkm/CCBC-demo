@@ -26,10 +26,11 @@ export default {
 .splash-wrapper {
   position: relative;
   flex: 1;
-  border-radius: 60rpx;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
   overflow: hidden;
   background: #fdfefe;
-  box-shadow: 0 40rpx 120rpx rgba(5, 64, 120, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
