@@ -1,0 +1,10 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Alipay icon">
+  <defs>
+    <linearGradient id="alipayGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#43c5ff" />
+      <stop offset="100%" stop-color="#1471ff" />
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="120" fill="url(#alipayGradient)" />
+  <path d="M154 64h-20v30h-24v22h24v12l-46-12-8 26 29 8c-8 7-20 14-36 20l16 22c16-6 30-16 40-26l46 12 8-26-33-9v-22h36V94h-36z" fill="#ffffff" />
+</svg>

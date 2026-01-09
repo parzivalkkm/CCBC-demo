@@ -1,0 +1,17 @@
+<svg width="640" height="360" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Infinity ribbon">
+  <defs>
+    <linearGradient id="loop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7fd3ff" />
+      <stop offset="40%" stop-color="#3aa2ff" />
+      <stop offset="80%" stop-color="#0c6ad8" />
+      <stop offset="100%" stop-color="#0a58b2" />
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18" />
+    </filter>
+  </defs>
+  <rect width="640" height="360" rx="120" fill="url(#loop)" filter="url(#soft)" opacity="0.15" />
+  <path d="M180 180C180 120 230 90 270 130L320 180L370 230C410 270 460 240 460 180C460 120 410 90 370 130L320 180L270 230C230 270 180 240 180 180Z" fill="url(#loop)" opacity="0.9" />
+  <path d="M140 180C140 80 220 20 310 100C360 146 380 160 420 150C470 136 520 160 520 220C520 300 430 340 360 280L320 244L280 280C210 340 120 300 120 220C120 188 130 170 140 180Z" fill="url(#loop)" opacity="0.35" />
+  <circle cx="320" cy="180" r="36" fill="#ffffff" opacity="0.65" />
+</svg>

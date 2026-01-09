@@ -1,0 +1,12 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="China Construction Bank Mark">
+  <defs>
+    <linearGradient id="ccbBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c6edb" />
+      <stop offset="100%" stop-color="#0b4ca6" />
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="118" fill="url(#ccbBlue)" />
+  <rect x="76" y="76" width="104" height="104" rx="6" transform="rotate(45 128 128)" fill="#ffffff" />
+  <path d="M196 60L220 84L160 144L136 120Z" fill="#0b4ca6" />
+  <path d="M128 14A114 114 0 0 1 242 128L208 128A80 80 0 0 0 128 48Z" fill="#0a60c0" />
+</svg>

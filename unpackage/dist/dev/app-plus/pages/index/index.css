@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap');
+.splash-wrapper[data-v-f2d967f7] {
+  position: relative;
+  flex: 1;
+  border-radius: 1.875rem;
+  overflow: hidden;
+  background: #fdfefe;
+  box-shadow: 0 1.25rem 3.75rem rgba(5, 64, 120, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.splash-photo[data-v-f2d967f7] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.brand-layer[data-v-f2d967f7] {
+  width: 100%;
+  padding: 2.5rem 1.875rem 3.125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  margin-top: auto;
+}
+.brand-mark[data-v-f2d967f7] {
+  width: 5.625rem;
+  margin-bottom: 0.625rem;
+}
+.brand-text[data-v-f2d967f7] {
+  width: 10rem;
+  margin-bottom: 0.5rem;
+}
+.legal[data-v-f2d967f7] {
+  font-size: 0.6875rem;
+  color: #0f60b1;
+  opacity: 0.9;
+  text-align: center;
+}
+.skip-btn[data-v-f2d967f7] {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(255, 255, 255, 0.85);
+  color: #0f63b6;
+  border: none;
+  border-radius: 1.25rem;
+  font-size: 0.8125rem;
+  padding: 0 0.875rem;
+}
+uni-button[data-v-f2d967f7]::after {
+  border: none;
+}
+
+
+.login-scroll[data-v-6fc5415e] {
+  flex: 1;
+}
+.login-container[data-v-6fc5415e] {
+  padding-top: 2.5rem;
+  padding-bottom: 3.75rem;
+  color: #0f2040;
+  display: flex;
+  flex-direction: column;
+}
+.bank-brand[data-v-6fc5415e] {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+.bank-mark[data-v-6fc5415e] {
+  height: 2.8125rem;
+}
+.bank-wordmark[data-v-6fc5415e] {
+  width: 10rem;
+}
+.login-header[data-v-6fc5415e] {
+  margin-top: 1.25rem;
+  margin-bottom: 2.1875rem;
+}
+.hello[data-v-6fc5415e] {
+  display: block;
+  font-size: 2.125rem;
+  font-weight: 600;
+}
+.welcome[data-v-6fc5415e] {
+  display: block;
+  margin-top: 0.3125rem;
+  font-size: 1rem;
+  color: #5b6f91;
+}
+.form-card[data-v-6fc5415e] {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 1.875rem 1.5rem;
+  box-shadow: 0 1.5625rem 3.75rem rgba(15, 38, 86, 0.12);
+}
+.picker-row[data-v-6fc5415e] {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.0625rem solid #e4ecf5;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5625rem;
+}
+.area-picker[data-v-6fc5415e] {
+  width: 6.875rem;
+  margin-right: 0.9375rem;
+}
+.area-display[data-v-6fc5415e] {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #0f2040;
+}
+.arrow[data-v-6fc5415e] {
+  margin-left: 0.4375rem;
+  font-size: 1rem;
+  color: #8da2bf;
+}
+.phone-input[data-v-6fc5415e] {
+  flex: 1;
+  font-size: 1.125rem;
+  color: #0f2040;
+}
+.primary-btn[data-v-6fc5415e] {
+  margin-top: 1.25rem;
+  background: linear-gradient(110deg, #237dfd, #3fc0ff);
+  color: #ffffff;
+  border-radius: 2.5rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  height: 3rem;
+  line-height: 3rem;
+  border: none;
+  transition: opacity 0.2s;
+}
+.primary-btn.disabled[data-v-6fc5415e] {
+  opacity: 0.6;
+}
+.agreement-row[data-v-6fc5415e] {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 0.5625rem;
+}
+.checkbox[data-v-6fc5415e] {
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #b7c8df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: #fff;
+}
+.checkbox.checked[data-v-6fc5415e] {
+  background: #1f7bff;
+  border-color: #1f7bff;
+}
+.checkmark[data-v-6fc5415e] {
+  font-size: 0.75rem;
+}
+.agreement-text[data-v-6fc5415e] {
+  flex: 1;
+  font-size: 0.75rem;
+  color: #6c7c96;
+  line-height: 1.6;
+}
+.link[data-v-6fc5415e] {
+  color: #1f7bff;
+}
+.alt-login[data-v-6fc5415e] {
+  margin-top: 2.5rem;
+  text-align: center;
+  color: #4a5c73;
+  font-size: 0.8125rem;
+}
+.icon-row[data-v-6fc5415e] {
+  margin-top: 0.9375rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.875rem;
+}
+.icon-circle[data-v-6fc5415e] {
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 1.875rem;
+  background: #ffffff;
+  box-shadow: 0 0.625rem 1.25rem rgba(15, 38, 86, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-img[data-v-6fc5415e] {
+  width: 2.1875rem;
+  height: 2.1875rem;
+}
+uni-button[data-v-6fc5415e]::after {
+  border: none;
+}
+
+
+
+body {
+  background: #f5f7fb;
+  min-height: 100%;
+  font-family: 'Space Grotesk', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+.page {
+  min-height: 100vh;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
