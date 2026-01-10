@@ -27,7 +27,7 @@ export default {
   position: relative;
   flex: 1;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   border-radius: 0;
   overflow: hidden;
   background: #fdfefe;
