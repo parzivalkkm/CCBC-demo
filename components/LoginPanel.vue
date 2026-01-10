@@ -21,6 +21,10 @@
           </picker>
           <input class="phone-input" type="number" maxlength="11" placeholder="输入手机号码" :value="phone" @input="onPhoneInput" />
         </view>
+        <view class="code-row">
+          <input class="phone-input" type="number" maxlength="6" placeholder="请输入短信授权码" :value="smsCode" @input="onSmsInput" />
+          <text class="get-code" :class="{ disabled: smsCountdown > 0 }" @click="onRequestSms">{{ smsCountdown > 0 ? smsCountdown + 's' : '点击获取' }}</text>
+        </view>
         <button class="primary-btn" :class="{ disabled: !agreementChecked }" @click="$emit('submit')">注册 / 登录</button>
         <view class="agreement-row">
           <view class="checkbox" :class="{ checked: agreementChecked }" @click="$emit('toggle-agreement')">
@@ -70,9 +74,17 @@ export default {
     loginIcons: {
       type: Array,
       default: () => []
+    },
+    smsCode: {
+      type: String,
+      default: ''
+    },
+    smsCountdown: {
+      type: Number,
+      default: 0
     }
   },
-  emits: ['update:phone', 'area-change', 'toggle-agreement', 'submit', 'open-doc'],
+  emits: ['update:phone', 'update:sms-code', 'area-change', 'toggle-agreement', 'submit', 'open-doc', 'request-sms'],
   computed: {
     currentArea() {
       const fallback = this.areaCodes[0]
@@ -88,6 +100,15 @@ export default {
     onPhoneInput(event) {
       this.$emit('update:phone', event?.detail?.value || '')
     },
+    onSmsInput(event) {
+      this.$emit('update:sms-code', event?.detail?.value || '')
+    },
+    onRequestSms() {
+      if (this.smsCountdown > 0) {
+        return
+      }
+      this.$emit('request-sms')
+    },
     openDoc(type) {
       this.$emit('open-doc', type)
     }
@@ -98,6 +119,8 @@ export default {
 <style scoped>
 .login-scroll {
   flex: 1;
+  padding: 40rpx;
+  box-sizing: border-box;
 }
 
 .login-container {
@@ -155,6 +178,14 @@ export default {
   margin-bottom: 50rpx;
 }
 
+.code-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #e4ecf5;
+  padding-bottom: 24rpx;
+  margin-bottom: 50rpx;
+}
+
 .area-picker {
   width: 220rpx;
   margin-right: 30rpx;
@@ -177,6 +208,18 @@ export default {
   flex: 1;
   font-size: 36rpx;
   color: #0f2040;
+}
+
+.get-code {
+  margin-left: 24rpx;
+  font-size: 30rpx;
+  color: #1f7bff;
+  white-space: nowrap;
+}
+
+.get-code.disabled {
+  color: #9bb4d4;
+  pointer-events: none;
 }
 
 .primary-btn {

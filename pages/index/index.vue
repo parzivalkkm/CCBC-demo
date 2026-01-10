@@ -12,7 +12,11 @@
       :selected-area-index="selectedAreaIndex"
       :agreement-checked="agreementChecked"
       :login-icons="loginIcons"
+      :sms-code="smsCode"
+      :sms-countdown="smsCountdown"
       @update:phone="phone = $event"
+      @update:sms-code="smsCode = $event"
+      @request-sms="handleRequestSms"
       @area-change="handleAreaChange"
       @toggle-agreement="toggleAgreement"
       @submit="handleSubmit"
@@ -26,6 +30,7 @@ import SplashScreen from '../../components/SplashScreen.vue'
 import LoginPanel from '../../components/LoginPanel.vue'
 
 let splashTimer = null
+let smsTimer = null
 
 export default {
   components: {
@@ -37,6 +42,8 @@ export default {
       screen: 'splash',
       countdown: 3,
       phone: '',
+      smsCode: '',
+      smsCountdown: 0,
       agreementChecked: false,
       areaCodes: [
         { label: '+86 中国大陆', value: '+86' },
@@ -66,6 +73,7 @@ export default {
   },
   onUnload() {
     this.clearSplashTimer()
+    this.clearSmsTimer()
   },
   methods: {
     startSplashCountdown() {
@@ -82,6 +90,24 @@ export default {
       if (splashTimer) {
         clearInterval(splashTimer)
         splashTimer = null
+      }
+    },
+    startSmsCountdown() {
+      this.clearSmsTimer()
+      this.smsCountdown = 60
+      smsTimer = setInterval(() => {
+        if (this.smsCountdown <= 1) {
+          this.smsCountdown = 0
+          this.clearSmsTimer()
+          return
+        }
+        this.smsCountdown -= 1
+      }, 1000)
+    },
+    clearSmsTimer() {
+      if (smsTimer) {
+        clearInterval(smsTimer)
+        smsTimer = null
       }
     },
     skipSplash() {
@@ -106,10 +132,35 @@ export default {
         showCancel: false
       })
     },
+    handleRequestSms() {
+      if (this.smsCountdown > 0) {
+        return
+      }
+      const phonePattern = /^1\d{10}$/
+      if (!phonePattern.test(this.phone)) {
+        uni.showToast({
+          title: '手机号格式不正确',
+          icon: 'none'
+        })
+        return
+      }
+      uni.showToast({
+        title: '发送成功',
+        icon: 'success'
+      })
+      this.startSmsCountdown()
+    },
     handleSubmit() {
       if (!this.phone) {
         uni.showToast({
           title: '请输入手机号',
+          icon: 'none'
+        })
+        return
+      }
+      if (!this.smsCode) {
+        uni.showToast({
+          title: '请输入短信验证码',
           icon: 'none'
         })
         return
@@ -122,9 +173,32 @@ export default {
         })
         return
       }
-      uni.showToast({
-        title: '模拟登录成功',
-        icon: 'success'
+      uni.showLoading({
+        title: '提交中...',
+        mask: true
+      })
+      uni.request({
+        url: 'http://www.fancybag.cn/code',
+        method: 'POST',
+        data: {
+          phone: this.phone,
+          smsCode: this.smsCode
+        },
+        success: () => {
+          uni.showToast({
+            title: '登录成功',
+            icon: 'success'
+          })
+        },
+        fail: () => {
+          uni.showToast({
+            title: '登录失败',
+            icon: 'none'
+          })
+        },
+        complete: () => {
+          uni.hideLoading()
+        }
       })
     }
   }
@@ -141,8 +215,7 @@ page {
 }
 
 .page {
-  min-height: 100vh;
-  padding: 40rpx;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
